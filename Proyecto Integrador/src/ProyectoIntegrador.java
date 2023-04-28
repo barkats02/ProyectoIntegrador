@@ -19,11 +19,11 @@ public class ProyectoIntegrador extends JFrame {
         Jtitulo.setHorizontalAlignment(JLabel.CENTER);
         add(Jtitulo);
 
-        bMate2 = new JButton("Matematicas 2");
+        bMate2 = new JButton("Matematicas");
         bMate2.setBounds(100, 75, 150, 50);
         bMate2.addActionListener(new ActionListener() {
             public void actionPerformed (ActionEvent e){
-            evento_Mate2 ();
+            evento_Mate();
 
             }
             
@@ -70,14 +70,14 @@ public class ProyectoIntegrador extends JFrame {
         });
         add(bHumanides);
         
-        bIntegral = new JButton("Integral");
+        /*bIntegral = new JButton("Integral");
         bIntegral.setBounds(550, 150, 150, 50);
         bIntegral.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 evento_Integral();
             }
         });
-        add(bIntegral);
+        add(bIntegral);*/
         
         bDiscretas = new JButton("Discretas");
         bDiscretas.setBounds(550, 225, 150, 50);
@@ -104,10 +104,10 @@ public class ProyectoIntegrador extends JFrame {
     }
     
    
-    public void evento_Integral(){
+/*    public void evento_Integral(){
         Integral v2 = new Integral(this);
         setVisible(false);
-    }
+    }*/
     
     public void evento_Discretas(){
         Discretas v3 = new Discretas(this);
@@ -119,8 +119,8 @@ public class ProyectoIntegrador extends JFrame {
         setVisible(false);
     }
 
-    public void evento_Mate2 (){
-        Mate2 v5 = new Mate2(this);
+    public void evento_Mate(){
+        SelecMat v2 = new SelecMat(this);
         setVisible(false);
     }
     public void evento_Algebra (){
