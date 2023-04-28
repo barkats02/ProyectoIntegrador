@@ -1,4 +1,3 @@
-
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -8,7 +7,7 @@ import javax.swing.JLabel;
 
 
 public class ProyectoIntegrador extends JFrame {
-    JButton bFisica, bIntegral, bDiscretas, bAmbiente, bMate2, bHumanides, bAlgebra, bTGS;
+    JButton bFisica, bIntegral, bDiscretas, bAmbiente, bMate2, bHumanides, bAlgebra, bTGS, bAcercaD;
    
 
     
@@ -80,7 +79,7 @@ public class ProyectoIntegrador extends JFrame {
         add(bIntegral);*/
         
         bDiscretas = new JButton("Discretas");
-        bDiscretas.setBounds(550, 225, 150, 50);
+        bDiscretas.setBounds(550, 150, 150, 50);
         bDiscretas.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 evento_Discretas();
@@ -88,8 +87,18 @@ public class ProyectoIntegrador extends JFrame {
         });
         add(bDiscretas);
         
+         bAcercaD = new JButton("Acerca de nosotros");
+        bAcercaD.setBounds(550, 300, 150, 50);
+        bAcercaD.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                evento_nosotros();
+            }
+        });
+        add(bAcercaD);
+        
+        
         bAmbiente = new JButton("<html>Ingenieria del<br> medio ambiente</html>");
-        bAmbiente.setBounds(550, 300, 150, 50);
+        bAmbiente.setBounds(550, 225, 150, 50);
         bAmbiente.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 evento_Ambiente();
@@ -133,6 +142,10 @@ public class ProyectoIntegrador extends JFrame {
     }
     public void evento_TGS (){
         TGS v8 = new TGS (this); 
+        setVisible(false);
+    }
+    public void evento_nosotros (){
+        acercaDE v9 = new acercaDE(this); 
         setVisible(false);
     }
     

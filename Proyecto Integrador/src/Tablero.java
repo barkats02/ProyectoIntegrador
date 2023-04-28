@@ -20,6 +20,7 @@ public class Tablero extends JPanel{
         g.drawString("Este area se encuentra en desarrollo,", 30, 50);
         g.drawString("volver en otro momento.", 30, 90);
         ImageIcon img = new ImageIcon(getClass().getResource("Imagenes/error.png"));
+        
         g.drawImage(img.getImage(), 438, 2, 200, 250, this);
     }
     
