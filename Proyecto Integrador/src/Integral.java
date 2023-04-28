@@ -1,3 +1,4 @@
+import java.awt.Cursor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
@@ -5,11 +6,11 @@ import javax.swing.JFrame;
 
 
 public class Integral extends JFrame {
-    JButton jbVolver;
+    JButton jbVolver, jbSiguiente;
     ProyectoIntegrador pi;
     
     public Integral(ProyectoIntegrador obj){
-        super("INTEGRAL");
+        super("Matematicas 3.");
         pi = obj;
         setSize(800, 600);
         setLocationRelativeTo(null);
@@ -22,11 +23,11 @@ public class Integral extends JFrame {
     }
     
     public void crearGUI(){
-        Tablero t = new Tablero();
+        TableroIntegral t = new TableroIntegral();
         add(t);
                 
-        jbVolver = new JButton("Volver teaver");
-        jbVolver.setBounds(570, 470,150, 30);
+        jbVolver = new JButton("Menu principal");
+        jbVolver.setBounds(570, 470,150, 50);
         jbVolver.setFocusable(false);
         jbVolver.addActionListener(new ActionListener(){
         public void actionPerformed(ActionEvent e){
@@ -34,6 +35,13 @@ public class Integral extends JFrame {
             }
         });
         add(jbVolver);
+        
+        jbSiguiente = new JButton("<html>Este boton<br> Va a hacer algo </html>");
+        jbSiguiente.setBounds(80, 470, 150, 50);
+        jbSiguiente.setFocusable(false);
+        jbSiguiente.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        jbSiguiente.setToolTipText("PROXIMAMENTE");
+        add(jbSiguiente);
     }
     
     public void evento_jbVolver(){
