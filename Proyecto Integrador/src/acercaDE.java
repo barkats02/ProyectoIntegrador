@@ -37,15 +37,7 @@ public class acercaDE extends JDialog {
         jlImg.setBackground(Color.WHITE);
         jlImg.setBounds(200, 50, 800, 400);
         add(jlImg);
-        
-        
-        
-        
-        
-        
-        
-        
-        
+               
         jbVolver = new JButton("Volver ");
         jbVolver.setBounds(250, 470,150, 30);
         jbVolver.setFocusable(false);
@@ -70,13 +62,6 @@ public class acercaDE extends JDialog {
         g.drawImage(img1.getImage(), 50, 80, this);
         g.drawImage(img2.getImage(), 350, 80, this);
 
-        
-
-
-    
-    
-    
-    
     }
 
     public void evento_jbVolver(){
