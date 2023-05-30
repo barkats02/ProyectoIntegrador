@@ -48,7 +48,7 @@ public class Integral extends JFrame {
         dispose();
         pi.setVisible(true);
 
-        TableroIntegral t = new Tablerointegral ();
+        TableroIntegral t = new TableroIntegral();
         add(t);
     }
     
