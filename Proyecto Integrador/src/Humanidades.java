@@ -50,7 +50,7 @@ public class Humanidades extends JFrame {
         add(scrollPane);
                 
         jbVolver = new JButton("Volver ");
-        jbVolver.setBounds(570, 470,150, 30);
+        jbVolver.setBounds(570, 500,150, 30);
         jbVolver.setFocusable(false);
         jbVolver.addActionListener(new ActionListener(){
         public void actionPerformed(ActionEvent e){
