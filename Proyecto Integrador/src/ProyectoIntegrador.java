@@ -5,13 +5,11 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-
 public class ProyectoIntegrador extends JFrame {
     JButton bFisica, bIntegral, bDiscretas, bAmbiente, bMate2, bHumanides, bAlgebra, bTGS, bAcercaD;
+    private AlgebraLineal algebraLineal;
    
-
-    
-    public void crearGUI(){
+    public void crearGUI() {
         JLabel Jtitulo = new JLabel("Bienvenido");
         Jtitulo.setBounds(100, 0, 600, 50);
         Jtitulo.setFont(new Font("Tahoma", Font.BOLD, 30));
@@ -21,40 +19,34 @@ public class ProyectoIntegrador extends JFrame {
         bMate2 = new JButton("Matematicas");
         bMate2.setBounds(100, 75, 150, 50);
         bMate2.addActionListener(new ActionListener() {
-            public void actionPerformed (ActionEvent e){
-            evento_Mate();
-
+            public void actionPerformed(ActionEvent e) {
+                evento_Mate();
             }
-            
         });
         add(bMate2);
 
         bTGS = new JButton("<html>Teoria general<br> de sistemas</html>");
         bTGS.setBounds(325, 250, 150, 50);
         bTGS.addActionListener(new ActionListener() {
-            public void actionPerformed (ActionEvent e){
-            evento_TGS ();
-
+            public void actionPerformed(ActionEvent e) {
+                evento_TGS();
             }
-            
         });
         add(bTGS);
 
         bAlgebra = new JButton("Algebra Lineal ");
         bAlgebra.setBounds(100, 150, 150, 50);
         bAlgebra.addActionListener(new ActionListener() {
-            public void actionPerformed (ActionEvent e){
-            evento_Algebra ();
-
+            public void actionPerformed(ActionEvent e) {
+                evento_Algebra();
             }
-            
         });
         add(bAlgebra);
         
         bFisica = new JButton("Fisica");
         bFisica.setBounds(550, 75, 150, 50);
-        bFisica.addActionListener(new ActionListener(){
-            public void actionPerformed(ActionEvent e){
+        bFisica.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
                 evento_Fisica();
             }
         });
@@ -62,94 +54,72 @@ public class ProyectoIntegrador extends JFrame {
 
         bHumanides = new JButton("Humanidades");
         bHumanides.setBounds(550, 150, 150, 50);
-        bHumanides.addActionListener(new ActionListener(){
-            public void actionPerformed(ActionEvent e){
+        bHumanides.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
                 evento_Humanidades();
             }
         });
         add(bHumanides);
         
-        /*bIntegral = new JButton("Integral");
-        bIntegral.setBounds(550, 150, 150, 50);
-        bIntegral.addActionListener(new ActionListener(){
-            public void actionPerformed(ActionEvent e){
-                evento_Integral();
-            }
-        });
-        add(bIntegral);*/
-        
-        /*bDiscretas = new JButton("Discretas");
-        bDiscretas.setBounds(550, 150, 150, 50);
-        bDiscretas.addActionListener(new ActionListener(){
-            public void actionPerformed(ActionEvent e){
-                evento_Discretas();
-            }
-        });
-        add(bDiscretas);*/
-        
         bAcercaD = new JButton("Acerca de nosotros");
         bAcercaD.setBounds(600, 300, 110, 30);
-        bAcercaD.addActionListener(new ActionListener(){
-            public void actionPerformed(ActionEvent e){
+        bAcercaD.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
                 evento_nosotros();
             }
         });
         add(bAcercaD);
-        
-        
-        /*bAmbiente = new JButton("<html>Ingenieria del<br> medio ambiente</html>");
-        bAmbiente.setBounds(550, 225, 150, 50);
-        bAmbiente.addActionListener(new ActionListener(){
-            public void actionPerformed(ActionEvent e){
-                evento_Ambiente();
-            }
-        });
-        add(bAmbiente);*/
     }
     
-    public void evento_Fisica(){
+    public void evento_Fisica() {
         Fisica v1 = new Fisica(this);
         setVisible(false);
     }
     
-   
-/*    public void evento_Integral(){
-        Integral v2 = new Integral(this);
-        setVisible(false);
-    }*/
-    
-    public void evento_Discretas(){
+    public void evento_Discretas() {
         Discretas v3 = new Discretas(this);
         setVisible(false);
     }
     
-    public void evento_Ambiente(){
+    public void evento_Ambiente() {
         Ambiente v4 = new Ambiente(this);
         setVisible(false);
     }
 
-    public void evento_Mate(){
+    public void evento_Mate() {
         SelecMat v2 = new SelecMat(this);
         setVisible(false);
     }
-    public void evento_Algebra (){
-        AlgebraLineal v6 = new AlgebraLineal (this);
+    
+    public void evento_Algebra() {
+        algebraLineal = new AlgebraLineal(this);
         setVisible(false);
     }
-    public void evento_Humanidades (){
+    
+    public void evento_Humanidades() {
         Humanidades v7 = new Humanidades(this); 
         setVisible(false);
     }
-    public void evento_TGS (){
-        TGS v8 = new TGS (this); 
+    
+    public void evento_TGS() {
+        TGS v8 = new TGS(this); 
         setVisible(false);
     }
-    public void evento_nosotros (){
+    
+    public void evento_nosotros() {
         acercaDE v9 = new acercaDE(this); 
         setVisible(false);
     }
     
-    public ProyectoIntegrador(){
+    public void evento_jbVolver() {
+        setVisible(true);
+        if (algebraLineal != null) {
+            algebraLineal.dispose();
+            algebraLineal = null;
+        }
+    }
+    
+    public ProyectoIntegrador() {
         super("Proyecto Integrador");
         setSize(800, 400);
         setLocationRelativeTo(null);
@@ -157,12 +127,11 @@ public class ProyectoIntegrador extends JFrame {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setResizable(false);
         crearGUI();
-        
         setVisible(true);
     }
     
     public static void main(String[] args) {
-            ProyectoIntegrador pi = new ProyectoIntegrador();
+        ProyectoIntegrador pi = new ProyectoIntegrador();
     }
-    
 }
+

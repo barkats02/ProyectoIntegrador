@@ -129,8 +129,7 @@ public class Humanidades extends JFrame {
     }
 
     private void abrirMaterialComplementario() {
-        // Lógica para abrir el material complementario en el programa por defecto del PC
-        // Utiliza navegadores web y reproductores de video instalados en el PC
+        
     }
 
     private void realizarCuestionario() {
