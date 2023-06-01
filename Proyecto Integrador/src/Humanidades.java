@@ -3,7 +3,6 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.*;
-import java.awt.*;
 
 public class Humanidades extends JFrame {
     JButton jbVolver;

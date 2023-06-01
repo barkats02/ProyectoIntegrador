@@ -23,8 +23,7 @@ public class Integral extends JFrame {
     }
     
     public void crearGUI(){
-        TableroIntegral t = new TableroIntegral();
-        add(t);
+       
                 
         jbVolver = new JButton("Menu principal");
         jbVolver.setBounds(570, 470,150, 50);
@@ -48,6 +47,9 @@ public class Integral extends JFrame {
         setVisible(false);
         dispose();
         pi.setVisible(true);
+
+        TableroIntegral t = new Tablerointegral ();
+        add(t);
     }
     
 }
