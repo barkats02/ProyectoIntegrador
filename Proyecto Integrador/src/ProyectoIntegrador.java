@@ -149,7 +149,7 @@ public class ProyectoIntegrador extends JFrame {
         setVisible(false);
     }
     public void evento_nosotros (){
-        acercaDE v9 = new acercaDE(this); 
+        acercaDe v9 = new acercaDe(this); 
         setVisible(false);
     }
     
