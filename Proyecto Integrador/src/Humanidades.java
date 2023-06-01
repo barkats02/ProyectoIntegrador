@@ -40,6 +40,8 @@ public class Humanidades extends JFrame {
         + "\n\nObjetivo 8: Promover el crecimiento económico inclusivo y sostenible, \nel empleo y el trabajo decente para todos"
         + "\n\nObjetivo 9: Construir infraestructuras resilientes, promover la \nindustrialización sostenible y fomentar la innovación"
         + "\n\nObjetivo 10: Reducir la desigualdad en y entre los países");
+        
+        textArea.setEnabled(false);
        
 
 
