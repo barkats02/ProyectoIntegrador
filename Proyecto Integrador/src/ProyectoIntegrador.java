@@ -30,7 +30,7 @@ public class ProyectoIntegrador extends JFrame {
         add(bMate2);
 
         bTGS = new JButton("<html>Teoria general<br> de sistemas</html>");
-        bTGS.setBounds(100, 300, 150, 50);
+        bTGS.setBounds(325, 250, 150, 50);
         bTGS.addActionListener(new ActionListener() {
             public void actionPerformed (ActionEvent e){
             evento_TGS ();
@@ -61,7 +61,7 @@ public class ProyectoIntegrador extends JFrame {
         add(bFisica);
 
         bHumanides = new JButton("Humanidades");
-        bHumanides.setBounds(100, 225, 150, 50);
+        bHumanides.setBounds(550, 150, 150, 50);
         bHumanides.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 evento_Humanidades();
@@ -88,7 +88,7 @@ public class ProyectoIntegrador extends JFrame {
         add(bDiscretas);*/
         
         bAcercaD = new JButton("Acerca de nosotros");
-        bAcercaD.setBounds(690, 515, 80, 30);
+        bAcercaD.setBounds(600, 300, 110, 30);
         bAcercaD.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 evento_nosotros();
@@ -133,7 +133,7 @@ public class ProyectoIntegrador extends JFrame {
         setVisible(false);
     }
     public void evento_Algebra (){
-        Algebra v6 = new Algebra (this);
+        AlgebraLineal v6 = new AlgebraLineal (this);
         setVisible(false);
     }
     public void evento_Humanidades (){
@@ -151,7 +151,7 @@ public class ProyectoIntegrador extends JFrame {
     
     public ProyectoIntegrador(){
         super("Proyecto Integrador");
-        setSize(800, 600);
+        setSize(800, 400);
         setLocationRelativeTo(null);
         setLayout(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
