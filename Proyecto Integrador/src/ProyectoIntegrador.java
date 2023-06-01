@@ -4,6 +4,8 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.UIManager;
 
 public class ProyectoIntegrador extends JFrame {
     JButton bFisica, bIntegral, bDiscretas, bAmbiente, bMate2, bHumanides, bAlgebra, bTGS, bAcercaD;
@@ -107,7 +109,7 @@ public class ProyectoIntegrador extends JFrame {
     }
     
     public void evento_nosotros() {
-        acercaDE v9 = new acercaDE(this); 
+        acercaDe v9 = new acercaDe(this); 
         setVisible(false);
     }
     
@@ -131,6 +133,18 @@ public class ProyectoIntegrador extends JFrame {
     }
     
     public static void main(String[] args) {
+        
+        String look = "";
+        try {
+            look = "com.jtattoo.plaf.hifi.HiFiLookAndFeel"; //esto se cambia para el estilo de la apk
+            UIManager.setLookAndFeel(look);
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Error al tratar de cargar el paquete '" + look + "'.\n\n"
+                    + "Se tomara el LookAndFeel por defecto.", "Error de paquete", JOptionPane.WARNING_MESSAGE);
+
+            JFrame.setDefaultLookAndFeelDecorated(false);
+            look = "";
+        }
         ProyectoIntegrador pi = new ProyectoIntegrador();
     }
 }
