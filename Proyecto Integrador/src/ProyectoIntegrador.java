@@ -78,17 +78,17 @@ public class ProyectoIntegrador extends JFrame {
         });
         add(bIntegral);*/
         
-        bDiscretas = new JButton("Discretas");
+        /*bDiscretas = new JButton("Discretas");
         bDiscretas.setBounds(550, 150, 150, 50);
         bDiscretas.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 evento_Discretas();
             }
         });
-        add(bDiscretas);
+        add(bDiscretas);*/
         
-         bAcercaD = new JButton("Acerca de nosotros");
-        bAcercaD.setBounds(550, 300, 150, 50);
+        bAcercaD = new JButton("Acerca de nosotros");
+        bAcercaD.setBounds(690, 515, 80, 30);
         bAcercaD.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 evento_nosotros();
@@ -97,14 +97,14 @@ public class ProyectoIntegrador extends JFrame {
         add(bAcercaD);
         
         
-        bAmbiente = new JButton("<html>Ingenieria del<br> medio ambiente</html>");
+        /*bAmbiente = new JButton("<html>Ingenieria del<br> medio ambiente</html>");
         bAmbiente.setBounds(550, 225, 150, 50);
         bAmbiente.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 evento_Ambiente();
             }
         });
-        add(bAmbiente);
+        add(bAmbiente);*/
     }
     
     public void evento_Fisica(){
