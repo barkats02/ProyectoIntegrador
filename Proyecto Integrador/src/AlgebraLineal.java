@@ -13,6 +13,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class AlgebraLineal extends JFrame implements ActionListener {
+
     private JButton jbCalcular, jbVolver;
     private JComboBox<String> operacionesComboBox;
     private JTextField vector1TextField;
@@ -27,8 +28,14 @@ public class AlgebraLineal extends JFrame implements ActionListener {
         super("Algebra Lineal");
         pi = obj;
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(1200, 720);
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
+        crearGui();
+
         setVisible(true);
+
+    }
+
+    public void crearGui() {
 
         jbCalcular = new JButton("Calcular");
         jbCalcular.addActionListener(this);
@@ -41,18 +48,14 @@ public class AlgebraLineal extends JFrame implements ActionListener {
 
         vector1TextField = new JTextField(10);
         vector2TextField = new JTextField(10);
-        
-        
-        jbVolver = new JButton("Volver ");
-        jbVolver.setBounds(800, 600,150, 30);
+
+        jbVolver = new JButton("Volver");
         jbVolver.setFocusable(false);
-        jbVolver.addActionListener(new ActionListener(){
-        public void actionPerformed(ActionEvent e){
-            evento_jbVolver();
+        jbVolver.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                evento_jbVolver();
             }
         });
-        add(jbVolver);
-        
 
         panel = new JPanel() {
             @Override
@@ -68,35 +71,24 @@ public class AlgebraLineal extends JFrame implements ActionListener {
                 // Dibujar vectores
                 if (vector1 != null && vector2 != null) {
                     g.setColor(Color.RED);
-                    g.drawLine(centerX, centerY, vector1.x, vector1.y);
+                    g.drawLine(centerX, centerY, centerX + vector1.x, centerY - vector1.y);
                     g.setColor(Color.BLUE);
-                    g.drawLine(centerX, centerY, vector2.x, vector2.y);
+                    g.drawLine(centerX, centerY, centerX + vector2.x, centerY - vector2.y);
 
                     // Dibujar vector resultante
                     int resultadoX = vector1.x + vector2.x;
                     int resultadoY = vector1.y + vector2.y;
                     g.setColor(Color.GREEN);
-                    g.drawLine(centerX, centerY, resultadoX, resultadoY);
+                    g.drawLine(centerX, centerY, centerX + resultadoX, centerY - resultadoY);
 
                     // Dibujar figura
                     g.setColor(Color.BLACK);
-                    g.drawLine(vector1.x, vector1.y, vector2.x, vector2.y);
-                    g.drawLine(vector2.x, vector2.y, resultadoX, resultadoY);
-                    g.drawLine(resultadoX, resultadoY, vector1.x, vector1.y);
+                    g.drawLine(centerX + vector1.x, centerY - vector1.y, centerX + vector2.x, centerY - vector2.y);
+                    g.drawLine(centerX + vector2.x, centerY - vector2.y, centerX + resultadoX, centerY - resultadoY);
+                    g.drawLine(centerX + resultadoX, centerY - resultadoY, centerX + vector1.x, centerY - vector1.y);
                 }
             }
         };
-
-        panel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                if (vector1 == null) {
-                    vector1 = evt.getPoint();
-                } else if (vector2 == null) {
-                    vector2 = evt.getPoint();
-                }
-                panel.repaint();
-            }
-        });
 
         JPanel controlPanel = new JPanel();
         controlPanel.add(new JLabel("Vector 1 (x, y):"));
@@ -108,11 +100,12 @@ public class AlgebraLineal extends JFrame implements ActionListener {
 
         setLayout(new BorderLayout());
         add(panel, BorderLayout.CENTER);
+        add(jbVolver, BorderLayout.NORTH);
         add(controlPanel, BorderLayout.SOUTH);
-        
-        
+
     }
-     public void evento_jbVolver(){
+
+    public void evento_jbVolver() {
         setVisible(false);
         dispose();
         pi.setVisible(true);
@@ -141,6 +134,13 @@ public class AlgebraLineal extends JFrame implements ActionListener {
 
                         int vector2X = Integer.parseInt(vector2Coords[0].trim());
                         int vector2Y = Integer.parseInt(vector2Coords[1].trim());
+
+                        // Actualizar los puntos de los vectores
+                        vector1 = new Point(vector1X, vector1Y);
+                        vector2 = new Point(vector2X, vector2Y);
+
+                        // Volver a dibujar el panel
+                        panel.repaint();
 
                         // Realizar la operación y mostrar el resultado
                         if (operacionSeleccionada.equals("Suma de vectores")) {
