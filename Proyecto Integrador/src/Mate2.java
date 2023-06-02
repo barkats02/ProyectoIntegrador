@@ -21,7 +21,7 @@ public class Mate2 extends JFrame {
     public Mate2 (ProyectoIntegrador obj){
         super("Matematicas 2");
         pi = obj;
-        setSize(1280, 768);
+        setSize(1100, 625);
         setLocationRelativeTo(null);
         setLayout(null);
         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
@@ -79,7 +79,7 @@ public class Mate2 extends JFrame {
         bg.add(jrRad2);
         bg.add(jrRad3);
 
-        jcCombo = new JComboBox<>();
+        /*jcCombo = new JComboBox<>();
         jcCombo.addItem("<html>Ver el<br> concepto del limite</html>");
         jcCombo.addItem("<html>Ver el <br> concepto de la derivada</html>");
         jcCombo.addItem("<html>Ver la <br> grafica de la derivada</html>");
@@ -90,7 +90,7 @@ public class Mate2 extends JFrame {
                 evento_jcCombo();
             }
         });
-        add(jcCombo);
+        add(jcCombo);*/
 
 
 
@@ -110,15 +110,15 @@ public class Mate2 extends JFrame {
         ImageIcon img = null;
         switch(opcion){
             case 1: 
-                img = new ImageIcon(getClass().getResource( "../Imagenes/Limite.png"));
+                img = new ImageIcon(getClass().getResource( "Imagenes/Limite.png"));
                 jlImg.setIcon(img);
             break;
             case 2: 
-                img = new ImageIcon(getClass().getResource("../Imagenes/Derivada.png"));
+                img = new ImageIcon(getClass().getResource("Imagenes/Derivada.png"));
                 jlImg.setIcon(img);
             break;
             case 3: 
-                img = new ImageIcon(getClass().getResource("../Imagenes/Derivada2.png"));
+                img = new ImageIcon(getClass().getResource("Imagenes/Derivada2.png"));
                 jlImg.setIcon(img);
             break;
         }
