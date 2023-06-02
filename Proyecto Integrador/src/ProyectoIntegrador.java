@@ -96,7 +96,7 @@ public class ProyectoIntegrador extends JFrame {
     }
     
     public void evento_Algebra() {
-        algebraLineal = new AlgebraLineal(this);
+       AlgebraLineal v6 = new AlgebraLineal(this);
         setVisible(false);
     }
     

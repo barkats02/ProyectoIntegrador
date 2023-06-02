@@ -172,7 +172,7 @@ public class Humanidades extends JFrame {
                 textArea.setLineWrap(true);
                 textArea.setWrapStyleWord(true);
                 textArea.setText("""
-                                 Hola""");
+                                 La educación permite la movilidad socioeconómica ascendente y es clave para salir de la pobreza. Durante la última década, se consiguieron grandes avances a la hora de ampliar el acceso a la educación y las tasas de matriculación en las escuelas en todos los niveles, especialmente para las niñas. """);
                 textArea.setEnabled(false);
                 
 
