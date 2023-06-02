@@ -5,8 +5,8 @@ import javax.swing.JPanel;
 
 
 public class TableroBall extends JPanel {
-    int posX;
-    int posY;
+    double posX;
+    double posY;
     
     public TableroBall(){
         setBounds(20, 0, 620, 310);
@@ -19,7 +19,7 @@ public class TableroBall extends JPanel {
         super.paintComponent(g);
         
         ImageIcon img1 = new ImageIcon(getClass().getResource("Imagenes/Balon.png"));
-        g.drawImage(img1.getImage(), posX, posY, 48, 48, this);
+        g.drawImage(img1.getImage(),(int) posX,(int) posY, 48, 48, this);
     }
 
     public void setX(int posX) {

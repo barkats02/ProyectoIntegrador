@@ -7,10 +7,11 @@ import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
+import javax.swing.JTextField;
 import javax.swing.Timer;
 
 
-public class Fisica extends JFrame {
+public class Fisica extends JFrame implements ActionListener {
     JButton jbVolver, jbLaunch, jbCal;
     ProyectoIntegrador pi;
     TableroBall tb;
@@ -21,6 +22,15 @@ public class Fisica extends JFrame {
     int ang = 0;
     double velI = 0;
     int altura = 0;
+    
+    boolean fin = true;
+    int  TAMANO_BALON = 48, delay = 300;
+    double pesBal = 0.1;
+    double alBall, vel_vien = 0.5, velX, velY;
+
+     Timer temp;
+
+    JTextField Taltura, Tpeso, Tfuerza, Tang;
     
     public Fisica(ProyectoIntegrador obj){
         super("FISICA");
@@ -40,18 +50,39 @@ public class Fisica extends JFrame {
         JLayeredPane base = new JLayeredPane();
         base.setBounds(80, 80, 640, 310);
         
-        //TableroJuego tj = new TableroJuego();
-        //base.add(tj, 1);
-        
         tb = new TableroBall();
-        tb.setX(92);
-        tb.setY(102);
-        base.add(tb, 2);
+        base.add(tb, 1);
+        
+        TableroJuego tj = new TableroJuego();
+        base.add(tj, 2);
+        
+        
         
         this.getContentPane().add(base);
         
         
-        
+        JLabel alt = new JLabel("Altura (m)");
+        alt.setBounds(30, 420,100, 30);
+        Taltura = new JTextField(10);
+        Taltura.setBounds(90, 420,30, 30);
+        JLabel pe = new JLabel("Peso Balon (Kg)");
+        pe.setBounds(140, 420,100, 30);
+        Tpeso = new JTextField(10);
+        Tpeso.setBounds(235, 420,30, 30);
+        JLabel fuer = new JLabel("Fuerza (N*Kg)");
+        fuer.setBounds(420, 420,100, 30);
+        Tfuerza = new JTextField(10);
+        Tfuerza.setBounds(500, 420,30, 30);
+        JLabel an = new JLabel("Angulo");
+        an.setBounds(560, 420,100, 30);
+        Tang = new JTextField(10);
+        Tang.setBounds(605, 420,30, 30);
+        add(alt);
+        add(Taltura);
+        add(pe);
+        add(Tpeso);
+
+
         
 
         
@@ -93,15 +124,25 @@ public class Fisica extends JFrame {
             });
         add(opcion);
         
-        jbCal = new JButton("Calculanding");
-        jbCal.setBounds(250, 470,100, 30);
-        jbCal.setFocusable(false);
-        jbCal.addActionListener(new ActionListener(){
-        public void actionPerformed(ActionEvent e){
-            //evento_jbCalcular();
-            }
-        });
-        add(jbCal);
+        tb.posX = 48;
+        tb.posY = 100;
+        velX = 10;
+        velY = 0;
+
+        temp = new Timer(delay, this);
+        
+    }
+    
+     public void actionPerformed(ActionEvent e) {
+        velX += vel_vien;
+        velY += gravedad * pesBal;
+        tb.posX += velX;
+        tb.posY += velY;
+        tb.repaint();
+
+        if (tb.posY >= 300 -48) {
+            temp.stop();
+        }
     }
     
     
@@ -112,29 +153,21 @@ public class Fisica extends JFrame {
     }
     
     public void evento_jbLanzameinto() {
-        int iterations = 10;
-        int delay = 200; // Milisegundos de retardo entre cada iteración
+        tb.posY = 100;
+        temp.start();
+        double alturaBal = Double.parseDouble(Taltura.getText());
+        double pesoBal = Double.parseDouble(Tpeso.getText());
 
-        Timer timer = new Timer(delay, new ActionListener() {
-            int count = 0;
+        alBall = alturaBal;
+        pesBal = pesoBal;
 
-            public void actionPerformed(ActionEvent e) {
-                time+=delay/1000;
-                Calcular();
-                
-                if(tb.posX >= 362 || tb.posY >= 572){
-                    count = iterations;
-                }
-                tb.repaint();
+        tb.posX = TAMANO_BALON;
+        tb.posY = 300- alBall;
+        velX = 10;
+        velY = 0;
 
-                count++;
-                if (count == iterations) {
-                    ((Timer) e.getSource()).stop();
-                }
-            }
-        });
-
-        timer.start();
+        temp.restart();
+        
     }
     
     public void evento_jcCombo(){
@@ -151,19 +184,5 @@ public class Fisica extends JFrame {
         }
     }
     
-    public void Calcular(){
-        // Suma aceleracion
-        double x = acel*Math.cos(ang/180)*time*time;
-        double y = acel*Math.sin(ang/180)*time*time;
-        
-        //suma velocidad inicial y posicion
-        x+= velI*Math.cos(ang/180)*time;
-        y+= velI*Math.sin(ang/180)*time+altura;
-        
-        //resta gravedad
-        y-=gravedad*time*time;
-        
-        tb.posX = (int) -x;
-        tb.posY = (int) -y;
-    }
+    
 }
