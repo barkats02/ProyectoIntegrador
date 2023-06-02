@@ -110,15 +110,15 @@ public class Mate2 extends JFrame {
         ImageIcon img = null;
         switch(opcion){
             case 1: 
-                img = new ImageIcon(getClass().getResource( "../Imagenes/Limite.png"));
+                img = new ImageIcon(getClass().getResource( "Imagenes/Limite.png"));
                 jlImg.setIcon(img);
             break;
             case 2: 
-                img = new ImageIcon(getClass().getResource("../Imagenes/Derivada.png"));
+                img = new ImageIcon(getClass().getResource("Imagenes/Derivada.png"));
                 jlImg.setIcon(img);
             break;
             case 3: 
-                img = new ImageIcon(getClass().getResource("../Imagenes/Derivada2.png"));
+                img = new ImageIcon(getClass().getResource("Imagenes/Derivada2.png"));
                 jlImg.setIcon(img);
             break;
         }
