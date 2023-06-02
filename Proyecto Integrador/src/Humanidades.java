@@ -75,6 +75,24 @@ public class Humanidades extends JFrame {
             }
         });
         add(jbVolver);
+        
+        JButton cuestionarioButton = new JButton("Realizar cuestionario");
+        cuestionarioButton.setBounds(470, 300, 200, 30);
+        cuestionarioButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                realizarCuestionario();
+            }
+        });
+        add(cuestionarioButton);
+        
+        JButton materialButton = new JButton("Material complementario");
+        materialButton.setBounds(470, 350, 200, 30);
+        materialButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                abrirMaterialComplementario();
+            }
+        });
+        add(materialButton);
 
         JLabel jlCapitulo = new JLabel("CAPITULOS");
         jlCapitulo.setBounds(470, 50, 120, 25);
@@ -734,7 +752,7 @@ public class Humanidades extends JFrame {
         evento_cap(10);
     }
 
-    private void abrirVentanaDialog(int objetivoIndex) {
+    /*private void abrirVentanaDialog(int objetivoIndex) {
         JDialog dialog = new JDialog(this, "Ventana de Capitulo", true);
         dialog.setSize(800, 600);
         dialog.setLocationRelativeTo(this);
@@ -755,26 +773,9 @@ public class Humanidades extends JFrame {
         objetivoScrollPane.setBounds(50, 70, 580, 380);
         dialog.add(objetivoScrollPane);
 
-        JButton materialButton = new JButton("Material complementario");
-        materialButton.setBounds(320, 530, 200, 30);
-        materialButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                abrirMaterialComplementario();
-            }
-        });
-        dialog.add(materialButton);
-
-        JButton cuestionarioButton = new JButton("Realizar cuestionario");
-        cuestionarioButton.setBounds(320, 490, 200, 30);
-        cuestionarioButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                realizarCuestionario();
-            }
-        });
-        dialog.add(cuestionarioButton);
-
+        
         dialog.setVisible(true);
-    }
+    }*/
 
     private void abrirMaterialComplementario() {
 
