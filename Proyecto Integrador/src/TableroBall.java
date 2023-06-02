@@ -1,12 +1,10 @@
 
-import java.awt.Color;
 import java.awt.Graphics;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 
 public class TableroBall extends JPanel {
-    
     int posX;
     int posY;
     
@@ -22,8 +20,6 @@ public class TableroBall extends JPanel {
         
         ImageIcon img1 = new ImageIcon(getClass().getResource("Imagenes/Balon.png"));
         g.drawImage(img1.getImage(), posX, posY, 48, 48, this);
-        g.setColor(Color.red);
-        g.drawLine(posX+24, posY+24, posX+24, posY+24);
     }
 
     public void setX(int posX) {
