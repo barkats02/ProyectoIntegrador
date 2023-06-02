@@ -1,6 +1,8 @@
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -121,6 +123,15 @@ public class ProyectoIntegrador extends JFrame {
         }
     }
     
+    private void evento_jbSalir() {
+        int res = JOptionPane.showConfirmDialog(this, 
+                "¿Desea realmente salir de la aplicación?", 
+                "Confirmación", 
+                JOptionPane.YES_NO_OPTION);
+        
+        if(res == JOptionPane.YES_OPTION) System.exit(0);
+    }
+    
     public ProyectoIntegrador() {
         super("Proyecto Integrador");
         setSize(800, 400);
@@ -128,6 +139,11 @@ public class ProyectoIntegrador extends JFrame {
         setLayout(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setResizable(false);
+        addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent we){
+                evento_jbSalir();
+            }
+        });
         crearGUI();
         setVisible(true);
     }
